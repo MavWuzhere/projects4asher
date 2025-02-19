@@ -1,1 +1,1 @@
-#I'll finish this section later but basically these are most of my python projects and potentially some other languages as well. not all of them work yet but hopefully I can get that fixed in the near future.
+# I'll finish this section later but basically these are most of my python projects and potentially some other languages as well. not all of them work yet but hopefully I can get that fixed in the near future.
