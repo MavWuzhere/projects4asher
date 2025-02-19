@@ -166,20 +166,18 @@
     </div>
 
     <script>
-        let selectedScript = "";
+        let selectedScript = "hello.py"; // Set default script to hello.py
 
-        // Function to toggle group visibility
         function toggleGroup(groupId) {
-            let group = document.getElementById(groupId);
-            if (group.style.display === "none" || group.style.display === "") {
-                group.style.display = "block";  
-            } else {
-                group.style.display = "none";  
-            }
+            document.querySelectorAll(".script-list").forEach(group => {
+                if (group.id === groupId) {
+                    group.style.display = group.style.display === "block" ? "none" : "block";
+                } else {
+                    group.style.display = "none";
+                }
+            });
         }
 
-
-        // Add event listener to each script in the sidebar
         document.querySelectorAll(".script-option").forEach(item => {
             item.addEventListener("click", function() {
                 document.querySelectorAll(".script-option").forEach(el => el.classList.remove("active"));
@@ -190,7 +188,7 @@
 
         async function runPythonScript() {
             let outputElement = document.getElementById("output");
-            
+
             if (!selectedScript) {
                 outputElement.textContent = "Please select a script first!";
                 return;
@@ -203,24 +201,26 @@
                 let scriptContent = await response.text();
 
                 let pyodide = await loadPyodide();
-                
-                // Redirect Python print output to JavaScript
+
                 pyodide.runPython(`
                     import sys
                     from io import StringIO
                     sys.stdout = sys.stderr = StringIO()
                 `);
-                
-                // Run the script
+
                 pyodide.runPython(scriptContent);
-                
-                // Capture the output
+
                 let result = pyodide.runPython("sys.stdout.getvalue()");
                 outputElement.textContent = result;
             } catch (error) {
                 outputElement.textContent = "Error: " + error;
             }
         }
+
+        // Auto-run hello.py when the page loads
+        window.onload = async function() {
+            await runPythonScript();
+        };
     </script>
 
 </body>
