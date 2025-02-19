@@ -172,11 +172,12 @@
         function toggleGroup(groupId) {
             let group = document.getElementById(groupId);
             if (group.style.display === "none" || group.style.display === "") {
-                group.style.display = "block";  // Show the scripts under this group
+                group.style.display = "block";  
             } else {
-                group.style.display = "none";  // Hide them
+                group.style.display = "none";  
             }
         }
+
 
         // Add event listener to each script in the sidebar
         document.querySelectorAll(".script-option").forEach(item => {
