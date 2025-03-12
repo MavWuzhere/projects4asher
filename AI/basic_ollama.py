@@ -1,3 +1,5 @@
+# Simple local AI chatbot using Ollama's model Llama 3.2.
+
 import ollama
 
 def chat_with_llama():
