@@ -1,3 +1,6 @@
+# This is the simple file sorter I used to be able to keep all of my projects organized.
+
+
 import os
 import shutil
 
