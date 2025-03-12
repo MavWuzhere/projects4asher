@@ -1,3 +1,5 @@
+# Used to get stock market data and then put it in a spreadsheet for 
+
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
