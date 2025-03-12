@@ -1,3 +1,5 @@
+# This is just a fun little code that claims to "read your mind" with AI.
+
 import ollama
 import time
 import threading
