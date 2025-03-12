@@ -1,3 +1,5 @@
+# Ollama enhanced for coding.
+
 import ollama
 
 def get_language_mapping():
