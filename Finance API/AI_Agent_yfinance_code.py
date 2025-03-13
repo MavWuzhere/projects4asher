@@ -1,3 +1,5 @@
+# Since I have used the yfinance API in many of my projects, I decided to attempt to make a "GPT" or an AI agent trained specifically for coding with yfinance. This is a sample code that it wrote.
+
 import yfinance as yf
 import pandas as pd
 
