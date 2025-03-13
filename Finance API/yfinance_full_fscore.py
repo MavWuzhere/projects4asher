@@ -1,11 +1,4 @@
-'''import yfinance as yf
-ticker = input("Stock Ticker : ")
-stock = yf.Ticker(ticker)
-#print(stock.info)
-#print(f"Current Price : {stock.info['currentPrice']}\n")
-priceToBook = stock.info['priceToBook']
-print(f"Book Value : {priceToBook}\n")'''
-#This program uses the yfinance api to get stock market data and then applies the Piotroski F-Score to evaluate each company which has a price to book ratio above 1.
+# This program uses the yfinance api to get stock market data and then applies the Piotroski F-Score to evaluate each company which has a price to book ratio above 1.
 
 import yfinance as yf
 
