@@ -42,7 +42,7 @@ This repository contains various projects that highlight my proficiency in Pytho
 
 Before running any of these projects, make sure you have the following installed:
 
-* Python 3.x or higher
+* Python 3.9 or higher
 * A text editor (e.g., VSCode, Sublime Text)
 * Git for version control (if you wish to clone the repository)
 
