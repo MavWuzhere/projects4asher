@@ -33,8 +33,6 @@ This repository contains various projects that highlight my proficiency in Pytho
 
 ### Other
 - **README.md**: The README file you are currently reading.
-- **hello.py**: A basic Python program that prints "Hello, World!" for beginners.
-- **index.html**: A simple HTML file for a basic webpage.
 
 ## Getting Started
 
