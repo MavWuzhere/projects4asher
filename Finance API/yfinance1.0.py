@@ -1,11 +1,3 @@
-'''import yfinance as yf
-ticker = input("Stock Ticker : ")
-stock = yf.Ticker(ticker)
-#print(stock.info)
-#print(f"Current Price : {stock.info['currentPrice']}\n")
-priceToBook = stock.info['priceToBook']
-print(f"Book Value : {priceToBook}\n")'''
-
 import yfinance as yf
 
 # Define the list of ticker symbols
