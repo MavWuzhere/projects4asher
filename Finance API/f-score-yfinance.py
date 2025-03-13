@@ -1,34 +1,6 @@
 import yfinance as yf
 
-# Define the list of ticker symbols for the companies you want to analyze
-'''tickers = [
-    "BIDU", "CMCSA", "GOGO", "GOOGL", "META", "MTCH", "NFLX", "NTES", "SIRI", "SOHU", 
-    "VEON", "AMZN", "CAAS", "CAKE", "CZR", "ETSY", "GRPN", "HAS", "LE", "LULU", "MAR", 
-    "MAT", "ORLY", "PTON", "PZZA", "SBUX", "SFIX", "SWBI", "TSLA", "TXRH", "ULTA", "URBN", 
-    "VRA", "WEN", "CASY", "COST", "DLTR", "FIZZ", "JJSF", "KDP", "MNST", "PEP", "SFM", "WBA", 
-    "WDFC", "AMTX", "GBCI", "GEG", "ONB", "OZK", "PYPL", "SEIC", "TROW", "ACHC", "AMGN", "CPRX", 
-    "GILD", "GMAB", "HBIO", "ILMN", "LQDA", "MYGN", "REGN", "AAL", "ARCB", "BECN", "CHPT", "HTLD", 
-    "JBLU", "LYFT", "MIDD", "PCAR", "ROCK", "SKYW", "VRSK", "AAPL", "ADBE", "AEHR", "AMD", "AVGO", 
-    "CSCO", "CTSH", "DBX", "DJCO", "FTNT", "INTC", "MANH", "MSFT", "NCTY", "NVDA", "NXPI", "QCOM", 
-    "RTC", "SEDG", "TXN", "UTSI", #"CHNR",
-    "IOSP", "KALU", "NTIC", "RGLD", "USLM", "AEP", "MSEX", 
-    "YORW", "AMC", "DIS", "EDR", "IMAX", "RCI", "SPOT", "T", "TU", "VZ", "AEO", "ANF", "APTV", "AZO", 
-    "BABA", "BBW", "BBY", "BNED", "BURL", "BWA", "CMG", "EDU", "F", "FL", "GM", "GRMN", "H", "HD", 
-    "HMC", "HOG", "HRB", "KMX", "LCII", "LOW", "LVS", "M", "MCD", "MOV", "NCLH", "NKE", "PLNT", "SONY", 
-    "TAL", "TCS", "TJX", "TM", "UA", "VFC", "WH", "WSM", "YUM", "BUD", "CL", "CPB", "DEO", "DG", "EL", 
-    "GIS", "HSY", "K", "KO", "MKC", "PG", "SYY", "TAP", "TGT", "THS", "TR", "TSN", "UL", "UNFI", "WMT", 
-    "BP", "CCJ", "CVX", "ENB", "ET", "HES", "KMI", "NGS", "NOV", "OKE", "PSX", "SUN", "TRP", "WHD", 
-    "XOM", "AFL", "ALL", "APAM", "AXP", "BAC", "BAM", "BCS", "BEN", "BLK", "BX", "C", "DB", "DFS", "GS", 
-    "ICE", "JPM", "KEY", "KKR", "L", "LAZ", "MA", "MCO", "MET", "MS", "MTB", "OPY", "PNC", "PRU", "RF", 
-    "SCHW", "UBS", "V", "WFC", "ABBV", "ABT", "AMN", "BAX", "BMY", "CNC", "CVS", "GMED", "GSK", "IQV", 
-    "JNJ", "MCK", "MRK", "NVO", "NVS", "PBH", "PFE", "TEVA", "UNH", "VEEV", "BA", "CAT", "CNI", "CP", 
-    "CYD", "DAL", "DE", "FCN", "GD", "GE", "GEO", "LMT", "LUV", "NOC", "PLOW", "RBA", "RTX", "SAVE", 
-    "SNA", "TREX", "TWI", "TXT", "UBER", "UPS", "WNC", "ZTO", "ANET", "ASGN", "BILL", "CRM", "DXC", 
-    "FICO", "ORCL", "SAP", "SNOW", "TSM", "XRX", "APD", "ASH", "CLW", "CRH", "CTVA", "DOW", "EMN", "FCX", 
-    "FMC", "KWR", "LAC", "NTR", "PKX", "X", "DLR", "DOC", "EXR", "IRM", "PSA", "AWK", "D", "FE", "FTS",
-    "NFG", "PCG", "SJW", "SO", "SRE", "UGI"
-]'''
-#tickers = [ "AAPL", "ASR", "CLW","GOOG","CRM", "AVGO", "ALSN", "GASS","AMC","GME","COUR"]
+
 tickers = ['BIDU', 'SIRI', 'SOHU', 'CAAS', 'VRA', 'WBA', 'GEG', 'GMAB', 'JBLU', 'NCTY', 'SEDG', 'UTSI', 'BABA', 'F', 'FL', 'GM', 'HMC', 'MOV', 'SONY', 'TCS', 'TM', 'TAP', 'UNFI', 'NOV', 'BEN', 'C', 'DB', 'OPY', 'CYD', 'SAVE', 'TWI', 'ZTO', 'XRX', 'CLW', 'NTR', 'PKX', 'X']
   # Add or replace with the companies you want
 
