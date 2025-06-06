@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asher Lieberman Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('category', name='Finance') }}">Finance</a>
+        <a href="{{ url_for('category', name='AI') }}">AI</a>
+        <a href="{{ url_for('category', name='Game Bots') }}">Game Bots</a>
+        <a href="{{ url_for('category', name='Other') }}">Other</a>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
