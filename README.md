@@ -3,9 +3,9 @@
 Experienced Python developer focused on automation, data analysis and AI.
 
 ## Contact
-- **Email:** asher@example.com
+- **Email:** asherlieberman@gmail.com
 - **LinkedIn:** [linkedin.com/in/asherlieberman](https://linkedin.com/in/asherlieberman)
-- **GitHub:** [github.com/asherlieberman](https://github.com/asherlieberman)
+- **GitHub:** Main: [github.com/asherwuzhere](https://github.com/asherwuzhere) and Java/APCSA: [github.com/aslieberman](https://github.com/aslieberman)
 
 This repository collects a variety of Python projects demonstrating my skills in AI, data analysis, automation and game development. Each folder represents a different area of interest, from finance utilities to interactive bots.
 
