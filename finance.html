@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Finance Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
@@ -69,6 +70,7 @@
     <div class="script-entry" id="magic-formula-screener">
         <h2>Magic Formula Screener</h2>
         <p>This script downloads S&P 500 tickers, calculates return on capital and earnings yield, then ranks the stocks according to Joel Greenblatt's Magic Formula.</p>
+        <button class="run-btn" data-script="Finance API/AI_Agent_yfinance_code.py">Run</button>
         <pre>Calculating Magic Formula metrics...
 Ranking stocks based on Magic Formula...
        ticker  roc   ey
@@ -76,74 +78,90 @@ Ranking stocks based on Magic Formula...
 1       MSFT  45%  6.1%
 ...       ...  ...  ...
 </pre>
+        <p class="run-explanation">Sample ranking output for a few tickers. Run to generate fresh results.</p>
     </div>
 
     <div class="script-entry" id="simple-f-score-tool">
         <h2>Simple F-Score Tool</h2>
         <p>Evaluates a list of ticker symbols using the Piotroski F-Score, printing the rating for each.</p>
+        <button class="run-btn" data-script="Finance API/f-score-yfinance.py">Run</button>
         <pre>Processing tickers...
 AAPL: 7
 TSLA: 5
 GOOG: 6
 </pre>
+        <p class="run-explanation">Displays F-Score results for a few stocks. Click Run to analyze your own list.</p>
     </div>
 
     <div class="script-entry" id="bulk-f-score-evaluator">
         <h2>Bulk F-Score Evaluator</h2>
         <p>Runs the F-Score calculation across hundreds of stocks, writing the results to a CSV for later analysis.</p>
+        <button class="run-btn" data-script="Finance API/yfinance1.0.py">Run</button>
         <pre>Downloading data for 200 tickers...
 Writing scores to output.csv
 Done.
 </pre>
+        <p class="run-explanation">Generates a CSV of scores for many symbols. The run may take a while inside the browser.</p>
     </div>
 
     <div class="script-entry" id="ebit-ev-roic-ranking">
         <h2>EBIT/EV &amp; ROIC Ranking</h2>
         <p>Combines EBIT/EV and Return on Invested Capital ranks to highlight potential value investments.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_combined_fs_and_mf.py">Run</button>
         <pre>Calculating EBIT/EV ratios...
 Computing ROIC...
 Top ranked tickers saved to combined_ranking.csv
 </pre>
+        <p class="run-explanation">Outputs a CSV ranking stocks by combined metrics. Running it will recalc with the latest data.</p>
     </div>
 
     <div class="script-entry" id="fixed-assets-magic-formula">
         <h2>Fixed Assets Magic Formula</h2>
         <p>A variant of the Magic Formula strategy that focuses on companies with large fixed asset bases.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_fixed_assets_magic_formula.py">Run</button>
         <pre>Screening companies by fixed asset ratio...
 Finished! Results exported to fa_magic_formula.csv
 </pre>
+        <p class="run-explanation">Filters for businesses rich in fixed assets and ranks them. Run for updated rankings.</p>
     </div>
 
     <div class="script-entry" id="growth-adjusted-f-score">
         <h2>Growth-Adjusted F-Score</h2>
         <p>Adds a growth factor to the traditional F-Score calculation to favor expanding businesses.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_fscore_growth.py">Run</button>
         <pre>Loading financials...
 Calculating growth metrics...
 Ticker  Score  GrowthAdj
 AAPL    8      9
 </pre>
+        <p class="run-explanation">Augments F-Score with growth metrics. Run to compute fresh scores.</p>
     </div>
 
     <div class="script-entry" id="full-f-score-implementation">
         <h2>Full F-Score Implementation</h2>
         <p>Comprehensive script computing F-Scores for the entire market universe.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_full_fscore.py">Run</button>
         <pre>Retrieving 1500 tickers...
 F-Score results stored in full_fscore.csv
 </pre>
+        <p class="run-explanation">Calculates scores for hundreds of companies. In-browser execution may take time.</p>
     </div>
 
     <div class="script-entry" id="full-magic-formula-ranking">
         <h2>Full Magic Formula Ranking</h2>
         <p>Large scale Magic Formula screener evaluating thousands of companies.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_full_magic_formula.py">Run</button>
         <pre>Collecting financial data...
 Generating final ranking...
 Saved to full_magic_formula.csv
 </pre>
+        <p class="run-explanation">Produces a full ranking list. Run to generate a new CSV.</p>
     </div>
 
     <div class="script-entry" id="interactive-f-score">
         <h2>Interactive F-Score</h2>
         <p>Command line tool prompting for tickers one by one until the user types 'exit'.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_input_fscore.py">Run</button>
         <pre>F-Score Calculator [out of 9] (type 'exit' to end and list companies.)
 Ticker: AAPL
 AAPL scored 7/9
@@ -155,34 +173,43 @@ AAPL: 7
 TSLA: 5
 *beep boop* Ending program *beep boo..*
 </pre>
+        <p class="run-explanation">Demonstrates an interactive session entering tickers. Run it to try your own symbols.</p>
     </div>
 
     <div class="script-entry" id="interactive-magic-formula">
         <h2>Interactive Magic Formula</h2>
         <p>Similar to the interactive F-Score tool but ranking companies based on the Magic Formula.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_input_magic_formula.py">Run</button>
         <pre>Magic Formula Calculator (type 'exit' to end and list companies.)
 Ticker: GOOGL
 GOOGL ROC: 44% EY: 6%
 Ticker: exit
 All rankings displayed above.
 </pre>
+        <p class="run-explanation">Enter tickers interactively to see Magic Formula scores. Run it to test.</p>
     </div>
 
     <div class="script-entry" id="legacy-f-score">
         <h2>Legacy F-Score</h2>
         <p>Older implementation of the F-Score system kept for reference.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_og_fscore.py">Run</button>
         <pre>Running legacy calculation...
 Completed in 30 seconds.
 </pre>
+        <p class="run-explanation">Runs an original version of the scoring algorithm. Useful for comparison.</p>
     </div>
 
     <div class="script-entry" id="legacy-magic-formula">
         <h2>Legacy Magic Formula</h2>
         <p>Original attempt at the Magic Formula ranking algorithm.</p>
+        <button class="run-btn" data-script="Finance API/yfinance_og_magic_formula.py">Run</button>
         <pre>Loading historical data...
 Top 20 stocks written to legacy_magic.csv
 </pre>
+        <p class="run-explanation">First pass at the Magic Formula approach. Run to see how it performs.</p>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.24.0/full/pyodide.js"></script>
+<script src="static/main.js"></script>
 </body>
 </html>

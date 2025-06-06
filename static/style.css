@@ -1,14 +1,20 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
-    background: #f0f4f8;
+    background: #f5f7fa;
+    display: flex;
 }
 
 nav {
-    background: linear-gradient(to right, #4b6cb7, #182848);
-    color: white;
-    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    overflow-y: auto;
+    background: linear-gradient(#232526, #414345);
+    color: #fff;
+    padding-top: 20px;
 }
 
 nav ul {
@@ -18,55 +24,77 @@ nav ul {
 }
 
 nav li {
-    display: inline-block;
     position: relative;
-    padding: 0 15px;
 }
 
-nav a {
-    color: white;
+nav > ul > li > a {
+    display: block;
+    padding: 12px 20px;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: background 0.3s;
+}
+
+nav > ul > li:hover > a {
+    background: rgba(255,255,255,0.1);
 }
 
 nav li .dropdown-content {
     display: none;
-    position: absolute;
-    background: white;
-    color: #333;
-    padding: 10px;
-    min-width: 200px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    z-index: 1;
+    background: #2b2e33;
 }
 
 nav li:hover .dropdown-content {
     display: block;
 }
 
-.dropdown-content li {
+.dropdown-content li a {
     display: block;
-    padding: 5px 0;
+    padding: 8px 30px;
+    color: #ddd;
+    text-decoration: none;
 }
 
-.dropdown-content li a {
-    color: #333;
+.dropdown-content li a:hover {
+    background: rgba(255,255,255,0.1);
 }
 
 .content {
+    margin-left: 220px;
     padding: 20px;
+    flex: 1;
 }
 
 .script-entry {
     margin-bottom: 20px;
-    background: white;
+    background: #fff;
     border-radius: 6px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 pre {
-    background: #f6f8fa;
+    background: #27292c;
+    color: #e8e8e8;
     padding: 10px;
     overflow-x: auto;
+    border-radius: 4px;
+}
+
+.run-btn {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    background: #4b6cb7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.run-explanation {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
 }
