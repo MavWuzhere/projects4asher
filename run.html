@@ -4,57 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Run Portfolio Scripts</title>
+    <link rel="stylesheet" href="static/style.css">
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             display: flex;
             min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
         }
         .sidebar {
             width: 250px;
-            background: #222;
+            background: linear-gradient(to bottom, #4b6cb7, #182848);
             color: white;
             padding: 20px;
-            height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
+            bottom: 0;
             overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
         }
         .sidebar h2 {
-            font-size: 20px;
             text-align: center;
-            margin-bottom: 10px;
+            margin-top: 0;
         }
         .group-title {
             font-size: 18px;
             font-weight: bold;
             padding: 10px;
             cursor: pointer;
-            border-bottom: 1px solid #444;
-            background: #333;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
             text-align: center;
-            transition: 0.3s;
+            transition: background 0.3s;
         }
-        .group-title:hover { background: #444; }
-        .script-list { list-style-type: none; padding: 0; display: none; }
+        .group-title:hover { background: rgba(255,255,255,0.1); }
+        .script-list { list-style: none; padding: 0; margin: 0; display: none; }
         .script-list li {
             padding: 10px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
+            border-radius: 4px;
+            transition: background 0.3s;
             text-align: center;
         }
-        .script-list li:hover { background: #444; }
+        .script-list li:hover { background: rgba(255,255,255,0.1); }
         .script-list li.active { background: #007bff; }
         .main-content {
             flex-grow: 1;
             margin-left: 270px;
             padding: 20px;
-            text-align: center;
         }
+        pre.code-block { background: #272822; color: #f8f8f2; }
+        pre.output-block { background: #f6f8fa; }
         button {
             margin-top: 10px;
             padding: 10px 15px;
@@ -64,20 +66,9 @@
             color: white;
             border: none;
             border-radius: 5px;
-            transition: 0.3s;
+            transition: background 0.3s;
         }
         button:hover { background: #0056b3; }
-        pre {
-            background: #f4f4f4;
-            padding: 15px;
-            white-space: pre-wrap;
-            text-align: left;
-            width: 80%;
-            margin: 20px auto;
-            border-radius: 5px;
-            font-family: monospace;
-            overflow-x: auto;
-        }
     </style>
 </head>
 <body>
@@ -108,8 +99,10 @@
 <div class="main-content">
     <h1>Portfolio Script Runner</h1>
     <button onclick="runPythonScript()">Run Selected Script</button>
-    <h2>Output:</h2>
-    <pre id="output">Select a script and click "Run".</pre>
+    <h2>Code:</h2>
+    <pre id="code" class="code-block">Loading...</pre>
+    <h2>Run Result:</h2>
+    <pre id="output" class="output-block">Select a script and click "Run".</pre>
 </div>
 <script>
 let selectedScript = "hello.py";
@@ -142,25 +135,34 @@ document.querySelectorAll(".script-option").forEach(item => {
 });
 async function runPythonScript() {
     const outputElement = document.getElementById("output");
-    if (!selectedScript) { outputElement.textContent = "Please select a script first!"; return; }
-    outputElement.textContent = "Loading script...";
+    const codeElement = document.getElementById("code");
+    if (!selectedScript) {
+        outputElement.textContent = "Please select a script first!";
+        return;
+    }
+    outputElement.textContent = "Running...";
     try {
         const response = await fetch(selectedScript);
         const scriptContent = await response.text();
+        codeElement.textContent = scriptContent;
         const pyodide = await loadPyodide();
-        pyodide.runPython(`import sys\nfrom io import StringIO\nsys.stdout = sys.stderr = StringIO()`);
-        pyodide.runPython(scriptContent);
-        const result = pyodide.runPython("sys.stdout.getvalue()");
-        outputElement.textContent = result || "(No output)";
-    } catch (error) {
-        if (sampleOutputs[selectedScript]) {
-            outputElement.textContent = "Sample run:\n" + sampleOutputs[selectedScript];
-        } else {
-            outputElement.textContent = "Error: " + error;
+        try {
+            pyodide.runPython(`import sys\nfrom io import StringIO\nsys.stdout = sys.stderr = StringIO()`);
+            pyodide.runPython(scriptContent);
+            const result = pyodide.runPython("sys.stdout.getvalue()");
+            outputElement.textContent = result || "(No output)";
+        } catch (err) {
+            if (sampleOutputs[selectedScript]) {
+                outputElement.textContent = "Sample run:\n" + sampleOutputs[selectedScript];
+            } else {
+                outputElement.textContent = "Error: " + err;
+            }
         }
+    } catch (err) {
+        outputElement.textContent = "Could not load script: " + err;
     }
 }
-window.onload = async function() { await runPythonScript(); };
+window.onload = runPythonScript;
 </script>
 </body>
 </html>
