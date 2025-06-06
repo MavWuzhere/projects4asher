@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Portfolio Scripts</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: #222;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .group-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #444;
+            background: #333;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .group-title:hover { background: #444; }
+        .script-list { list-style-type: none; padding: 0; display: none; }
+        .script-list li {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .script-list li:hover { background: #444; }
+        .script-list li.active { background: #007bff; }
+        .main-content {
+            flex-grow: 1;
+            margin-left: 270px;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover { background: #0056b3; }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            white-space: pre-wrap;
+            text-align: left;
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <h2>Python Scripts</h2>
+    <div class="group-title" onclick="toggleGroup('game-bots')">🎮 Game Bots</div>
+    <ul id="game-bots" class="script-list">
+        <li class="script-option" data-script="Game Bots/tic_tac_toe_bot.py">Tic-Tac-Toe Bot</li>
+        <li class="script-option" data-script="Game Bots/wordle_bot_dynamic_points.py">Wordle Solver Dynamic</li>
+    </ul>
+    <div class="group-title" onclick="toggleGroup('finance')">💰 Finance</div>
+    <ul id="finance" class="script-list">
+        <li class="script-option" data-script="Finance API/yfinance_input_fscore.py">Interactive F-Score</li>
+        <li class="script-option" data-script="Finance API/yfinance_input_magic_formula.py">Interactive Magic Formula</li>
+    </ul>
+    <div class="group-title" onclick="toggleGroup('ai')">🤖 AI</div>
+    <ul id="ai" class="script-list">
+        <li class="script-option" data-script="AI/ai_num_guessr.py">Number Guesser</li>
+        <li class="script-option" data-script="AI/basic_ollama.py">Local Chatbot</li>
+    </ul>
+    <div class="group-title" onclick="toggleGroup('other')">🛠️ Other Projects</div>
+    <ul id="other" class="script-list">
+        <li class="script-option" data-script="Other Projects/num_guessing_game.py">Number Guessing Game</li>
+        <li class="script-option" data-script="Other Projects/roman_numeral.py">Roman Numeral Converter</li>
+        <li class="script-option" data-script="hello.py">Hello Test</li>
+    </ul>
+</div>
+<div class="main-content">
+    <h1>Portfolio Script Runner</h1>
+    <button onclick="runPythonScript()">Run Selected Script</button>
+    <h2>Output:</h2>
+    <pre id="output">Select a script and click "Run".</pre>
+</div>
+<script>
+let selectedScript = "hello.py";
+const sampleOutputs = {
+    "Game Bots/tic_tac_toe_bot.py": `Welcome to Tic Tac Toe!\n1 | 2 | 3\n---------\n4 | 5 | 6\n---------\n7 | 8 | 9\n---------\nEnter your move (1-9): 1\nBot chooses: 5\nX |   |\n---------\n  | O |\n---------\n  |   |`,
+    "Game Bots/wordle_bot_dynamic_points.py": `Best first guess: crate\nEnter feedback (g/y/b letters): bbygy\nNext suggestion: slope`,
+    "AI/ai_num_guessr.py": `Analyzing Brain Waves...\nDecoding Neural Patterns...\nI think your number is 7!`,
+    "AI/basic_ollama.py": `Welcome to the Llama 3.2 chat! Type 'exit' to end the conversation.\nYou: Hello!\nLlama: Hello there! How can I assist you today?\nYou: exit\nGoodbye!`,
+    "Finance API/yfinance_input_fscore.py": `F-Score Calculator [out of 9] (type 'exit' to end and list companies.)\nTicker: AAPL\nAAPL scored 7/9\nTicker: TSLA\nTSLA scored 5/9\nTicker: exit\nAll F-Scores:\nAAPL: 7\nTSLA: 5\n*beep boop* Ending program *beep boo..*`,
+    "Finance API/yfinance_input_magic_formula.py": `Magic Formula Calculator (type 'exit' to end and list companies.)\nTicker: GOOGL\nGOOGL ROC: 44% EY: 6%\nTicker: exit\nAll rankings displayed above.`,
+    "Other Projects/num_guessing_game.py": `Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 10. Try to guess it!\nEnter your guess: 5\nToo low! Try again.\nEnter your guess: 7\nCongratulations! You've guessed the number 7 in 2 attempts.\nDo you want to play again? : n\nThanks for playing! Goodbye!`,
+    "Other Projects/roman_numeral.py": `Enter a number or a Roman numeral: 9\nIX\nEnter a number or a Roman numeral: X\n10`,
+    "hello.py": `Hello from the script!`
+};
+function toggleGroup(id) {
+    document.querySelectorAll(".script-list").forEach(g => {
+        if (g.id === id) {
+            g.style.display = g.style.display === "block" ? "none" : "block";
+        } else {
+            g.style.display = "none";
+        }
+    });
+}
+document.querySelectorAll(".script-option").forEach(item => {
+    item.addEventListener("click", function() {
+        document.querySelectorAll(".script-option").forEach(el => el.classList.remove("active"));
+        this.classList.add("active");
+        selectedScript = this.getAttribute("data-script");
+    });
+});
+async function runPythonScript() {
+    const outputElement = document.getElementById("output");
+    if (!selectedScript) { outputElement.textContent = "Please select a script first!"; return; }
+    outputElement.textContent = "Loading script...";
+    try {
+        const response = await fetch(selectedScript);
+        const scriptContent = await response.text();
+        const pyodide = await loadPyodide();
+        pyodide.runPython(`import sys\nfrom io import StringIO\nsys.stdout = sys.stderr = StringIO()`);
+        pyodide.runPython(scriptContent);
+        const result = pyodide.runPython("sys.stdout.getvalue()");
+        outputElement.textContent = result || "(No output)";
+    } catch (error) {
+        if (sampleOutputs[selectedScript]) {
+            outputElement.textContent = "Sample run:\n" + sampleOutputs[selectedScript];
+        } else {
+            outputElement.textContent = "Error: " + error;
+        }
+    }
+}
+window.onload = async function() { await runPythonScript(); };
+</script>
+</body>
+</html>
