@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>{{ name }}</h1>
+{% for path, title in scripts %}
+<div class="script-entry">
+    <h3>{{ title }}</h3>
+    <form action="{{ url_for('run_script', script=path) }}" method="post">
+        <textarea name="input" placeholder="Optional input..." rows="2" cols="40"></textarea><br>
+        <button type="submit">Run</button>
+    </form>
+</div>
+{% endfor %}
+{% endblock %}
