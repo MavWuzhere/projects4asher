@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Bot Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
@@ -69,48 +70,59 @@
     <div class="script-entry" id="backgammon-bot-v1">
         <h2>Backgammon Bot V1</h2>
         <p>Heuristic agent that suggests moves using dice roll probabilities and simple evaluation.</p>
+        <button class="run-btn" data-script="Game Bots/backgammon_bot_v1.py">Run</button>
         <pre>Player rolls 5-3
 Suggested move: 13/8 6/3
 </pre>
+        <p class="run-explanation">Shows a sample suggested move from the bot. Run it for new dice rolls.</p>
     </div>
 
     <div class="script-entry" id="backgammon-bot-v2">
         <h2>Backgammon Bot V2</h2>
         <p>Improved version with doubling cube logic and better board evaluation.</p>
+        <button class="run-btn" data-script="Game Bots/backgammon_bot_v2.py">Run</button>
         <pre>Player rolls 6-6
 Suggested move: 24/18 24/18 13/7 13/7
 </pre>
+        <p class="run-explanation">Enhanced bot recommending moves with cube strategy. Run to see new suggestions.</p>
     </div>
 
     <div class="script-entry" id="blackjack-advisor-v1">
         <h2>Blackjack Advisor V1</h2>
         <p>Provides basic hit or stand advice based on a simplified strategy table.</p>
+        <button class="run-btn" data-script="Game Bots/blackjack_bot_v1.py">Run</button>
         <pre>Your hand: [8, 7] (total 15)
 Dealer shows: 10
 Advice: Hit
 </pre>
+        <p class="run-explanation">Simple suggestion engine for Blackjack. Run it to get real-time advice.</p>
     </div>
 
     <div class="script-entry" id="blackjack-advisor-v2">
         <h2>Blackjack Advisor V2</h2>
         <p>Adds probability calculations for card counting style play.</p>
+        <button class="run-btn" data-script="Game Bots/blackjack_bot_v2.py">Run</button>
         <pre>Your hand: [A, 7] (soft 18)
 Dealer shows: 9
 Advice: Stand
 </pre>
+        <p class="run-explanation">Adds probabilities to the advice. Run for more detailed tips.</p>
     </div>
 
     <div class="script-entry" id="file-sorter">
         <h2>File Sorter</h2>
         <p>Utility that organizes Python files into folders grouped by keyword.</p>
+        <button class="run-btn" data-script="Game Bots/file_sorter_bot.py">Run</button>
         <pre>Scanning /home/user/scripts...
 Moved 20 files into 5 categories.
 </pre>
+        <p class="run-explanation">Organizes files based on keywords. Run to clean up your own directory.</p>
     </div>
 
     <div class="script-entry" id="poker-assistant">
         <h2>Poker Assistant</h2>
         <p>Deals sample poker hands and prints recommended action for each betting round.</p>
+        <button class="run-btn" data-script="Game Bots/poker_bot.py">Run</button>
         <pre>Starting hand: Ah Kd
 Flop: 7s Qs 2h
 Turn action: Bet
@@ -118,11 +130,13 @@ Turn: Jc
 River: 4d
 Final action: Check
 </pre>
+        <p class="run-explanation">Deals hands and offers suggestions. Run to simulate your own game.</p>
     </div>
 
     <div class="script-entry" id="tic-tac-toe-bot">
         <h2>Tic-Tac-Toe Bot</h2>
         <p>Unbeatable bot that plays against the user on the command line.</p>
+        <button class="run-btn" data-script="Game Bots/tic_tac_toe_bot.py">Run</button>
         <pre>Welcome to Tic Tac Toe!
 1 | 2 | 3
 ---------
@@ -138,25 +152,32 @@ X |   |
 ---------
   |   |
 </pre>
+        <p class="run-explanation">Plays perfectly against you. Run to challenge the bot.</p>
     </div>
 
     <div class="script-entry" id="wordle-solver-dynamic">
         <h2>Wordle Solver Dynamic</h2>
         <p>Reranks guesses each turn using remaining possible answers.</p>
+        <button class="run-btn" data-script="Game Bots/wordle_bot_dynamic_points.py">Run</button>
         <pre>Best first guess: crate
 Enter feedback (g/y/b letters): bbygy
 Next suggestion: slope
 </pre>
+        <p class="run-explanation">Adapts guesses after each attempt. Run to solve your own puzzle.</p>
     </div>
 
     <div class="script-entry" id="wordle-solver-static">
         <h2>Wordle Solver Static</h2>
         <p>Uses fixed letter frequency scores for recommending guesses.</p>
+        <button class="run-btn" data-script="Game Bots/wordle_bot_static_points.py">Run</button>
         <pre>Best opening word: raise
 Enter feedback: gybbb
 Next suggestion: clout
 </pre>
+        <p class="run-explanation">Uses a predefined ranking of letters. Run to test it on today's puzzle.</p>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.24.0/full/pyodide.js"></script>
+<script src="static/main.js"></script>
 </body>
 </html>

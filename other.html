@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Other Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
@@ -69,25 +70,30 @@
     <div class="script-entry" id="scientific-notation-converter">
         <h2>Scientific Notation Converter</h2>
         <p>Converts very large exponents into readable scientific notation.</p>
+        <button class="run-btn" data-script="Other Projects/large_exponent_calc.py">Run</button>
         <pre>Exponent to scientific notation calculator
 Base: 2
 Power: 10
 The answer in scientific notation is 1.024 x 10^3
 </pre>
+        <p class="run-explanation">Converts huge numbers to scientific notation. Run to try your own values.</p>
     </div>
 
     <div class="script-entry" id="fake-loading-screen">
         <h2>Fake Loading Screen</h2>
         <p>Pygame-based program that displays a humorous sequence of loading messages.</p>
+        <button class="run-btn" data-script="Other Projects/loading_screen.py">Run</button>
         <pre>Initializing game window...
 Loading assets...
 Done!
 </pre>
+        <p class="run-explanation">Shows a playful loading sequence. Click Run to watch it again.</p>
     </div>
 
     <div class="script-entry" id="number-guessing-game">
         <h2>Number Guessing Game</h2>
         <p>Console game where you guess a randomly chosen number between 1 and 10.</p>
+        <button class="run-btn" data-script="Other Projects/num_guessing_game.py">Run</button>
         <pre>Welcome to the Number Guessing Game!
 I'm thinking of a number between 1 and 10. Try to guess it!
 Enter your guess: 5
@@ -97,11 +103,13 @@ Congratulations! You've guessed the number 7 in 2 attempts.
 Do you want to play again? : n
 Thanks for playing! Goodbye!
 </pre>
+        <p class="run-explanation">Classic high-low guessing challenge. Run to play a round.</p>
     </div>
 
     <div class="script-entry" id="password-strength-checker">
         <h2>Password Strength Checker</h2>
         <p>Rates your password and keeps asking until you reach a perfect score.</p>
+        <button class="run-btn" data-script="Other Projects/pwd_strength_checker.py">Run</button>
         <pre>Enter a password to check strength: weak
 Weak Password! Score: 2/10
 Feedback: Password is too short, should include numbers, should include special characters.
@@ -113,21 +121,25 @@ Strong Password! Score: 10/10
 Feedback: Password meets all the criteria.
 Congratulations! Your password is good to go, make sure to never reuse the same password multiple times, especially for important accounts.
 </pre>
+        <p class="run-explanation">Checks password complexity with detailed feedback. Try it with your own passwords.</p>
     </div>
 
     <div class="script-entry" id="roman-numeral-converter">
         <h2>Roman Numeral Converter</h2>
         <p>Converts integers to Roman numerals and vice versa.</p>
+        <button class="run-btn" data-script="Other Projects/roman_numeral.py">Run</button>
         <pre>Enter a number or a Roman numeral: 9
 IX
 Enter a number or a Roman numeral: X
 10
 </pre>
+        <p class="run-explanation">Converts between numeral systems. Run to test your own values.</p>
     </div>
 
     <div class="script-entry" id="simple-games-collection">
         <h2>Simple Games Collection</h2>
         <p>A menu-driven console program featuring Rock-Paper-Scissors, Hangman and more.</p>
+        <button class="run-btn" data-script="Other Projects/simple_games.py">Run</button>
         <pre>Welcome to the Game Hub! Choose a game to play:
 1. Rock, Paper, Scissors
 2. Tic-Tac-Toe
@@ -139,34 +151,43 @@ Enter the number of your choice: 1
 Enter rock, paper, or scissors (or 'exit' to quit): rock
 Computer chose scissors. You win!
 </pre>
+        <p class="run-explanation">Provides a menu of small games. Run and pick one to play.</p>
     </div>
 
     <div class="script-entry" id="test-script">
         <h2>Test Script</h2>
         <p>Placeholder file used for quick checks.</p>
+        <button class="run-btn" data-script="Other Projects/test.py">Run</button>
         <pre>test
 </pre>
+        <p class="run-explanation">A minimal script for sanity tests.</p>
     </div>
 
     <div class="script-entry" id="joke-weather-app">
         <h2>Joke Weather App</h2>
         <p>Displays a fake weather forecast with a comedic loading sequence.</p>
+        <button class="run-btn" data-script="Other Projects/weather_checker_(fake).py">Run</button>
         <pre>Enter your current location: New York
 Calibrating Atmospheric Sensors...
 Extracting Meteorological Anomalies...
 Deconstructing Hydrometeorological Patterns...
 Idk. Go outside for once and feel it for yourself.
 </pre>
+        <p class="run-explanation">Outputs a humorous forecast. Run for a laugh.</p>
     </div>
 
     <div class="script-entry" id="async-weather-example">
         <h2>Async Weather Example</h2>
         <p>Demonstrates asynchronous calls to the python_weather API to fetch the forecast.</p>
+        <button class="run-btn" data-script="Other Projects/weather_checker_(real).py">Run</button>
         <pre>Enter a location to get the weather: San Francisco
 The current temperature in San Francisco is 65°F.
 with a high of 68°F and a low of 55°F.
 </pre>
+        <p class="run-explanation">Queries a real API asynchronously. Run to check your city's forecast.</p>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.24.0/full/pyodide.js"></script>
+<script src="static/main.js"></script>
 </body>
 </html>
