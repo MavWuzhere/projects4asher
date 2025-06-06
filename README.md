@@ -1,6 +1,13 @@
 # Asher Lieberman Portfolio
 
-This repository collects a wide range of Python projects covering data analysis, machine learning, automation and game development. The code demonstrates how I use libraries such as **pandas**, **yfinance**, **TensorFlow**, **Ollama** and **Flask** to build practical tools and experiments.
+Experienced Python developer focused on automation, data analysis and AI.
+
+## Contact
+- **Email:** asherlieberman@gmail.com
+- **LinkedIn:** [linkedin.com/in/asherlieberman](https://linkedin.com/in/asherlieberman)
+- **GitHub:** Main: [github.com/asherwuzhere](https://github.com/asherwuzhere) and Java/APCSA: [github.com/aslieberman](https://github.com/aslieberman)
+
+This repository collects a variety of Python projects demonstrating my skills in AI, data analysis, automation and game development. Each folder represents a different area of interest, from finance utilities to interactive bots.
 
 ## Skills Demonstrated
 - Python scripting and general automation
@@ -61,15 +68,6 @@ Smaller experiments and learning exercises.
 - **test.py** – small placeholder script.
 - **weather_checker_(fake).py** – mock weather app that cracks jokes.
 - **weather_checker_(real).py** – asynchronous example using the `python_weather` API.
-
-### Web Interface
-A small Flask application serves these projects through a simple website. It embeds my resume on the home page and lets visitors run many of the scripts directly in the browser. If a script cannot run due to missing dependencies, the site shows an example command to execute locally.
-
-### Using Your Own Resume
-Replace `static/resume.pdf` with your personal PDF to display it on the home page. The file name should remain `resume.pdf` so the iframe reference in `templates/index.html` continues to work.
-
-### Deploying the Site
-Host the Flask app on any platform that supports Python, such as Replit or Render. After cloning the repository, install Flask with `pip install flask` and launch the site using `python app.py`. The service's public URL can then be shared with others.
 
 ---
 Repository: <https://github.com/asherwuzhere/projects/>
