@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finance Projects</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="finance.html">Finance</a>
+    <a href="ai.html">AI</a>
+    <a href="game-bots.html">Game Bots</a>
+    <a href="other.html">Other</a>
+</nav>
+<div class="content">
+    <h1>Finance Projects</h1>
+
+    <div class="script-entry">
+        <h2>Magic Formula Screener</h2>
+        <p>This script downloads S&amp;P 500 tickers, calculates return on capital and earnings yield, then ranks the stocks according to Joel Greenblatt's Magic Formula.</p>
+        <pre>Calculating Magic Formula metrics...
+Ranking stocks based on Magic Formula...
+       ticker  roc   ey
+0      AAPL   56%  7.2%
+1       MSFT  45%  6.1%
+...       ...  ...  ...
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Simple F-Score Tool</h2>
+        <p>Evaluates a list of ticker symbols using the Piotroski F-Score, printing the rating for each.</p>
+        <pre>Processing tickers...
+AAPL: 7
+TSLA: 5
+GOOG: 6
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Bulk F-Score Evaluator</h2>
+        <p>Runs the F-Score calculation across hundreds of stocks, writing the results to a CSV for later analysis.</p>
+        <pre>Downloading data for 200 tickers...
+Writing scores to output.csv
+Done.
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>EBIT/EV &amp; ROIC Ranking</h2>
+        <p>Combines EBIT/EV and Return on Invested Capital ranks to highlight potential value investments.</p>
+        <pre>Calculating EBIT/EV ratios...
+Computing ROIC...
+Top ranked tickers saved to combined_ranking.csv
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Fixed Assets Magic Formula</h2>
+        <p>A variant of the Magic Formula strategy that focuses on companies with large fixed asset bases.</p>
+        <pre>Screening companies by fixed asset ratio...
+Finished! Results exported to fa_magic_formula.csv
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Growth-Adjusted F-Score</h2>
+        <p>Adds a growth factor to the traditional F-Score calculation to favor expanding businesses.</p>
+        <pre>Loading financials...
+Calculating growth metrics...
+Ticker  Score  GrowthAdj
+AAPL    8      9
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Full F-Score Implementation</h2>
+        <p>Comprehensive script computing F-Scores for the entire market universe.</p>
+        <pre>Retrieving 1500 tickers...
+F-Score results stored in full_fscore.csv
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Full Magic Formula Ranking</h2>
+        <p>Large scale Magic Formula screener evaluating thousands of companies.</p>
+        <pre>Collecting financial data...
+Generating final ranking...
+Saved to full_magic_formula.csv
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Interactive F-Score</h2>
+        <p>Command line tool prompting for tickers one by one until the user types 'exit'.</p>
+        <pre>F-Score Calculator [out of 9] (type 'exit' to end and list companies.)
+Ticker: AAPL
+AAPL scored 7/9
+Ticker: TSLA
+TSLA scored 5/9
+Ticker: exit
+All F-Scores:
+AAPL: 7
+TSLA: 5
+*beep boop* Ending program *beep boo..*
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Interactive Magic Formula</h2>
+        <p>Similar to the interactive F-Score tool but ranking companies based on the Magic Formula.</p>
+        <pre>Magic Formula Calculator (type 'exit' to end and list companies.)
+Ticker: GOOGL
+GOOGL ROC: 44% EY: 6%
+Ticker: exit
+All rankings displayed above.
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Legacy F-Score</h2>
+        <p>Older implementation of the F-Score system kept for reference.</p>
+        <pre>Running legacy calculation...
+Completed in 30 seconds.
+</pre>
+    </div>
+
+    <div class="script-entry">
+        <h2>Legacy Magic Formula</h2>
+        <p>Original attempt at the Magic Formula ranking algorithm.</p>
+        <pre>Loading historical data...
+Top 20 stocks written to legacy_magic.csv
+</pre>
+    </div>
+</div>
+</body>
+</html>
